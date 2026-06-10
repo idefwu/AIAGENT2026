@@ -1,0 +1,25 @@
+# mcp_stdio_server.py
+import os
+from mcp.server.fastmcp import FastMCP
+
+# 建立一個名為 "File-Reader" 的 MCP 服務
+mcp = FastMCP("File-Reader")
+
+@mcp.tool()
+def read_file(filepath: str) -> str:
+    """讀取本地檔案內容。
+    
+    Args:
+        filepath: 檔案的完整路徑或名稱。
+    """
+    try:
+        if not os.path.exists(filepath):
+            return f"錯誤：檔案不存在 {filepath}"
+        with open(filepath, "r", encoding="utf-8") as f:
+            return f.read()[:8000]
+    except Exception as e:
+        return f"錯誤：{str(e)}"
+
+if __name__ == "__main__":
+    # 啟動 stdio 伺服器
+    mcp.run(transport="stdio")

@@ -1,0 +1,7 @@
+# Project Summary
+
+## English (EN)
+This script implements a rudimentary AI agent using the OpenAI client, configured to communicate with an Ollama endpoint. It defines and exposes several tools—`list_files`, `read_file`, `write_file`, and system command execution via `run_command`—to enable the Language Model (LLM) to interact with the local file system and environment in a structured manner. The agent's core loop facilitates decision-making by passing tool definitions to the LLM, which then suggests actions. This setup allows the model to perform tasks such as reading files, listing directories, or writing content dynamically based on user instructions.
+
+## 中文 (ZH-TW)
+本腳本使用 OpenAI 客戶端實現了一個基礎的 AI 代理，配置為與 Ollama 端點通訊。它定義並暴露了多個工具——包括 `list_files`、`read_file`、`write_file` 以及透過 `run_command` 的系統命令執行—使語言模型 (LLM) 能夠以結構化的方式與本地文件系統和環境進行交互。代理的核心迴圈通過將工具定義傳遞給 LLM 來促進決策制定，從而讓模型能根據用戶指令動態地執行任務，例如讀取文件、列目錄或寫入內容。

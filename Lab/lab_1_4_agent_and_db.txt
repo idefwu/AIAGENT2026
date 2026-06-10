@@ -1,0 +1,40 @@
+-- Enable foreign key constraint support in SQLite
+PRAGMA foreign_keys = ON;
+
+-- Create Genre table
+CREATE TABLE "Genre" (
+	"GenreId" INTEGER NOT NULL,
+	"Name" NVARCHAR(120),
+	PRIMARY KEY ("GenreId")
+);
+
+-- Insert data into Genre table
+INSERT INTO "Genre" ("GenreId", "Name") VALUES 
+(1, 'Rock'),
+(2, 'Jazz'),
+(3, 'Metal');
+
+-- Create Track table
+CREATE TABLE "Track" (
+	"TrackId" INTEGER NOT NULL,
+	"Name" NVARCHAR(200) NOT NULL,
+	"AlbumId" INTEGER,
+	"MediaTypeId" INTEGER NOT NULL,
+	"GenreId" INTEGER,
+	"Composer" NVARCHAR(220),
+	"Milliseconds" INTEGER NOT NULL,
+	"Bytes" INTEGER,
+	"UnitPrice" NUMERIC(10, 2) NOT NULL,
+	PRIMARY KEY ("TrackId"),
+	FOREIGN KEY("GenreId") REFERENCES "Genre" ("GenreId")
+	-- Note: MediaType and Album foreign keys are omitted or commented out 
+	-- because those tables are not defined in this specific script snippet.
+	-- FOREIGN KEY("MediaTypeId") REFERENCES "MediaType" ("MediaTypeId"),
+	-- FOREIGN KEY("AlbumId") REFERENCES "Album" ("AlbumId")
+);
+
+-- Insert data into Track table
+INSERT INTO "Track" ("TrackId", "Name", "AlbumId", "MediaTypeId", "GenreId", "Composer", "Milliseconds", "Bytes", "UnitPrice") VALUES 
+(1, 'For Those About To Rock (We Salute You)', 1, 1, 1, 'Angus Young, Malcolm Young, Brian Johnson', 343719, 11170334, 0.99),
+(2, 'Balls to the Wall', 2, 2, 1, 'U. Dirkschneider, W. Hoffmann, H. Frank, P. Baltes, S. Kaufmann, G. Hoffmann', 342562, 5510424, 0.99),
+(3, 'Fast As a Shark', 3, 2, 1, 'F. Baltes, S. Kaufman, U. Dirkscneider & W. Hoffman', 230619, 3990994, 0.99);

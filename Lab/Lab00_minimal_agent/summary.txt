@@ -1,0 +1,3 @@
+**中文 (zh-tw)**：這是一個名為 minimal-agent 的專案，目前版本是 1.0.0。它依賴於 `openai` 等現代工具庫來構建一個基礎的智能代理應用程式。
+
+**English (en)**: This is a project named "minimal-agent," version 1.0.0. It utilizes modern libraries such as `openai` to build a basic intelligent agent application.
