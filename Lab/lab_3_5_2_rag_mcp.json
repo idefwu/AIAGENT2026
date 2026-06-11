@@ -1,0 +1,13 @@
+如何將此 MCP Server 串接到你的 Agent 客戶端（以 Claude Desktop 為例）
+想要讓 Claude Desktop 能夠直接呼叫你這個寫好的本地知識庫，你只需要修改 Claude 的設定檔 claude_desktop_config.json（通常位於 %APPDATA%\Claude 或 ~/Library/Application Support/Claude）：
+
+{
+  "mcpServers": {
+    "my-local-rag": {
+      "command": "python",
+      "args": [
+        "C:/你的專案絕對路徑/lab_3_5_2_rag_mcp.py"
+      ]
+    }
+  }
+}
