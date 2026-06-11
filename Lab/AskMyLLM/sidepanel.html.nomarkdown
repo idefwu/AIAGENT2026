@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+      padding: 10px; 
+      display: flex; 
+      flex-direction: column; 
+      height: 96vh; 
+      margin: 0;
+      background-color: #f9f9f9;
+    }
+    /* 設定區域樣式 */
+    .config-section { 
+      font-size: 12px; 
+      background: #ffffff; 
+      padding: 10px; 
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 10px; 
+    }
+    details summary { cursor: pointer; color: #555; font-weight: bold; margin-bottom: 5px; }
+    
+    input, textarea { 
+      width: 100%; 
+      margin-bottom: 8px; 
+      padding: 6px; 
+      border: 1px solid #ddd; 
+      border-radius: 4px;
+      box-sizing: border-box; /* 確保寬度包含 padding */
+    }
+    
+    /* 聊天內容區 */
+    #chat { 
+      flex-grow: 1; 
+      overflow-y: auto; 
+      background: white;
+      border: 1px solid #eee; 
+      border-radius: 8px;
+      margin-bottom: 10px; 
+      padding: 10px; 
+    }
+    
+    .msg { margin-bottom: 12px; line-height: 1.4; }
+    .msg-user { color: #007bff; font-weight: bold; }
+    .msg-ai { color: #28a745; font-weight: bold; }
+    
+    /* 按鈕樣式 */
+    button { 
+      cursor: pointer; 
+      background: #007bff; 
+      color: white; 
+      border: none; 
+      padding: 8px; 
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    button:hover { background: #0056b3; }
+    #saveConfig { width: 100%; background: #6c757d; }
+  </style>
+</head>
+<body>
+
+  <!-- 設定區域：使用 details 標籤製作可收合選單 -->
+  <div class="config-section">
+    <details>
+      <summary>⚙️ API 設定 (Open WebUI)</summary>
+      <input id="apiUrl" placeholder="URL (例如 http://192.168.1.1)" />
+      <input id="apiKey" type="password" placeholder="API Key" />
+      <input id="model" placeholder="模型名稱 (例如 llama3)" />
+      <textarea id="sysPrompt" rows="2" placeholder="系統提示詞 (System Prompt)"></textarea>
+      <button id="saveConfig">儲存設定</button>
+    </details>
+  </div>
+
+  <!-- 對話顯示區 -->
+  <div id="chat">
+    <div style="color: #888; font-size: 13px; text-align: center;">請輸入問題來分析當前網頁</div>
+  </div>
+
+  <!-- 輸入區 -->
+  <textarea id="userInput" rows="3" placeholder="對此網頁提問..."></textarea>
+  <button id="sendBtn">發送問題</button>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>

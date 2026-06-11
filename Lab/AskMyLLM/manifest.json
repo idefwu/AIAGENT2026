@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "AskMyLLM, Local LLM Web Assistant",
+  "version": "1.3",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "description": "Read webpage and chat with local Open WebUI",
+  "permissions": ["sidePanel", "activeTab", "scripting", "storage", "tabs"],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "AskMyLLM"
+  }
+}
